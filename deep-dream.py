@@ -10,7 +10,7 @@ import PIL.Image
 
 from tensorflow.keras.preprocessing import image
 
-url = 'https://i.imgur.com/idb5ZTU.jpg'
+url = 'https://images.nintendolife.com/e96afc6b46ef7/kirby.original.jpg'
 # Download the image and read it into a Numpy array
 def download(url, max_dim=None):
     name = url.split('/')[-1]
@@ -179,7 +179,7 @@ class TiledGradients(tf.Module):
 get_tiled_gradients = TiledGradients(dream_model)
 
 def run_deep_dream_with_octaves(img, steps_per_octave=100, step_size=0.01, 
-                                octaves=range(-2,0), octave_scale=1.3):
+                                octaves=range(-2,1), octave_scale=1.3):
   base_shape = tf.shape(img)
   img = tf.keras.preprocessing.image.img_to_array(img)
   img = tf.keras.applications.inception_v3.preprocess_input(img)
